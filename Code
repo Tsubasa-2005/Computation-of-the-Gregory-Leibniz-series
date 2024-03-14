@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main(void) {
+    int n_values[] = {10, 100, 1000, 100000};
+    int i, k;
+    double pi;
+    
+    printf("n\tπの値\n");
+    printf("---------------------\n");
+    
+    for (i = 0; i < sizeof(n_values) / sizeof(n_values[0]); i++) {
+        int n = n_values[i];
+        double sum = 0;
+        for (k = 1; k <= n; k++) {
+            sum += (double)((k % 2 == 0) ? -1 : 1) / (2 * k - 1);
+        }
+        pi = 4 * sum;
+        printf("%d\t%f\n", n, pi);
+    }
+    
+    return 0;
+}
